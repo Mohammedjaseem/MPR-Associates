@@ -134,6 +134,75 @@
     .btn:hover { transform: translateY(-2px); }
     .btn-primary { background: linear-gradient(135deg, var(--color-gold), var(--color-gold-deep)); color: #111827; box-shadow: var(--shadow-md); }
     .btn-secondary { background: var(--color-surface); border-color: var(--color-border); }
+    /* Students Portal section button */
+    .btn-portal-section {
+      background: linear-gradient(135deg, var(--color-gold), var(--color-gold-deep));
+      color: #111827;
+      box-shadow: var(--shadow-md);
+      min-height: 56px;
+      padding: 0 2rem;
+      font-size: 1.05rem;
+    }
+    .btn-portal-section:hover { box-shadow: 0 8px 28px rgba(240,188,68,0.4); }
+
+    /* Students portal section */
+    .portal-section-band {
+      border-radius: 2rem;
+      background: linear-gradient(130deg, rgba(16,53,95,0.55), rgba(8,20,40,0.7));
+      border: 1px solid rgba(240,188,68,0.18);
+      box-shadow: var(--shadow-lg);
+      padding: clamp(2rem, 4vw, 3.5rem);
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 2.5rem;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .portal-section-band::before {
+      content: '';
+      position: absolute;
+      top: -80px; right: -80px;
+      width: 320px; height: 320px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(240,188,68,0.18), transparent 65%);
+      pointer-events: none;
+    }
+    .portal-section-band::after {
+      content: '';
+      position: absolute;
+      bottom: -60px; left: -60px;
+      width: 240px; height: 240px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(46,118,255,0.12), transparent 65%);
+      pointer-events: none;
+    }
+    .portal-band-copy { position: relative; z-index: 1; }
+    .portal-band-copy h2 {
+      font-family: var(--font-display);
+      font-size: clamp(1.7rem, 3.5vw, 2.8rem);
+      letter-spacing: -0.04em;
+      margin-top: 0.75rem;
+      line-height: 1.1;
+    }
+    .portal-band-copy p {
+      color: var(--color-text-muted);
+      margin-top: 0.75rem;
+      max-width: 56ch;
+      font-size: 0.97rem;
+    }
+    .portal-band-pills {
+      display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 1.25rem;
+    }
+    .portal-band-pill {
+      padding: 0.4rem 0.85rem; border-radius: var(--radius-full);
+      background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12);
+      color: var(--color-text-muted); font-size: 0.82rem; font-weight: 600;
+    }
+    .portal-band-cta { position: relative; z-index: 1; flex-shrink: 0; }
+    @media (max-width: 760px) {
+      .portal-section-band { grid-template-columns: 1fr; }
+      .portal-band-cta { width: 100%; }
+      .btn-portal-section { width: 100%; }
+    }
     .hero {
       position: relative; padding: clamp(5rem, 10vw, 8rem) 0 clamp(4rem, 7vw, 6rem);
     }
@@ -204,17 +273,23 @@
     .service-card::before, .feature-card::before, .contact-card::before, .testimonial-card::before {
       content: ''; position: absolute; inset: 0; background: linear-gradient(130deg, rgba(240,188,68,0.10), transparent 35%);
       opacity: 0; transition: opacity var(--transition);
+      pointer-events: none;
     }
     .service-card:hover::before, .feature-card:hover::before, .contact-card:hover::before, .testimonial-card:hover::before { opacity: 1; }
     .service-card:hover, .feature-card:hover, .contact-card:hover, .testimonial-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-md); }
     .card-icon {
       width: 3rem; height: 3rem; border-radius: 1rem; display: grid; place-items: center; margin-bottom: var(--space-4);
       background: rgba(240,188,68,0.12); color: var(--color-gold);
+      position: relative; z-index: 1;
     }
     .service-card h3, .feature-card h3, .contact-card h3, .process-step h3, .testimonial-card h3 {
       font-size: 1.1rem; margin-bottom: 0.55rem; font-family: var(--font-display);
+      position: relative; z-index: 1;
     }
-    .service-card p, .feature-card p, .contact-card p, .process-step p, .testimonial-card p { color: var(--color-text-muted); font-size: 0.96rem; }
+    .service-card p, .feature-card p, .contact-card p, .process-step p, .testimonial-card p { 
+      color: var(--color-text-muted); font-size: 0.96rem;
+      position: relative; z-index: 1;
+    }
     .why-grid { grid-template-columns: 1.05fr 0.95fr; align-items: start; }
     .feature-list { display: grid; gap: var(--space-4); }
     .feature-card { display: grid; grid-template-columns: auto 1fr; gap: var(--space-4); align-items: start; }
@@ -236,7 +311,7 @@
       border: 1px solid rgba(240,188,68,0.2); display: flex; justify-content: space-between; align-items: center; gap: var(--space-6);
     }
     .contact-grid { grid-template-columns: 1.2fr 0.8fr 0.8fr; }
-    .contact-card strong { display: block; font-size: 1.5rem; margin-top: 0.35rem; color: var(--color-gold); }
+    .contact-card strong { display: block; font-size: 1.5rem; margin-top: 0.35rem; color: var(--color-gold); position: relative; z-index: 1; }
     .footer {
       padding: var(--space-8) 0 var(--space-10); border-top: 1px solid var(--color-divider); color: var(--color-text-muted);
     }
@@ -271,109 +346,327 @@
       .reveal { opacity: 1; transform: none; }
     }
 
-.lead-form-card{
-    max-width:850px;
-    margin:auto;
-}
+    /* ── Lead Form ── */
+    .lead-form-card { 
+      max-width: 850px; margin: auto; 
+      position: relative; z-index: 1;
+    }
+    #businessLeadForm { display: grid; gap: 1rem; position: relative; z-index: 1; }
+    #businessLeadForm input[type="text"],
+    #businessLeadForm input[type="tel"],
+    #businessLeadForm select {
+      width: 100%; padding: 14px 16px; border-radius: 14px;
+      border: 1px solid var(--color-border); background: var(--color-surface-2);
+      color: var(--color-text); font-family: inherit; font-size: 15px;
+      position: relative; z-index: 1;
+    }
+    #businessLeadForm input[type="radio"] { width: auto; margin: 0; cursor: pointer; }
+    #businessLeadForm input:focus, #businessLeadForm select:focus { outline: none; border-color: var(--color-gold); }
+    #businessLeadForm label { display: block; font-weight: 600; color: var(--color-text); position: relative; z-index: 1; }
+    #businessLeadForm button[type="submit"] { position: relative; z-index: 1; }
+    .radio-group { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; margin-top: .75rem; position: relative; z-index: 1; }
+    .radio-card {
+      display: flex !important; align-items: center; gap: .75rem; padding: 16px;
+      border: 1px solid var(--color-border); border-radius: 14px; background: var(--color-surface-2);
+      cursor: pointer; transition: all .25s ease; position: relative; z-index: 1;
+    }
+    .radio-card input { position: absolute; opacity: 0; }
+    .radio-card:has(input:checked) { border-color: var(--color-gold); background: rgba(240,188,68,0.12); box-shadow: 0 0 0 1px var(--color-gold); }
+    .radio-card:hover { border-color: var(--color-gold); transform: translateY(-2px); }
+    .radio-card input[type="radio"] { accent-color: var(--color-gold); transform: scale(1.2); }
+    .radio-card span { font-weight: 600; }
 
-#businessLeadForm{
-    display:grid;
-    gap:1rem;
-}
+    /* ═══════════════════════════════════════════════════════════
+       STUDENTS PORTAL MODAL
+    ═══════════════════════════════════════════════════════════ */
 
-#businessLeadForm input[type="text"],
-#businessLeadForm input[type="tel"],
-#businessLeadForm select {
-    width: 100%;
-    padding: 14px 16px;
-    border-radius: 14px;
-    border: 1px solid var(--color-border);
-    background: var(--color-surface-2);
-    color: var(--color-text);
-    font-family: inherit;
-    font-size: 15px;
-}
+    /* Overlay */
+    #studentsPortalOverlay {
+      position: fixed; inset: 0; z-index: 1000;
+      background: rgba(5, 12, 25, 0.82);
+      backdrop-filter: blur(8px);
+      display: flex; align-items: center; justify-content: center;
+      padding: 1rem;
+      opacity: 0; pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+    #studentsPortalOverlay.open {
+      opacity: 1; pointer-events: all;
+    }
 
-#businessLeadForm input[type="radio"]{
-    width:auto;
-    margin:0;
-    cursor:pointer;
-}
+    /* Modal box */
+    .portal-modal {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: 2rem;
+      box-shadow: var(--shadow-lg);
+      width: 100%;
+      max-width: 960px;
+      max-height: 92vh;
+      overflow-y: auto;
+      padding: 2rem 2rem 2.5rem;
+      position: relative;
+      margin-top: 40px;
+      opacity: 0;
+      transition: margin-top 0.35s cubic-bezier(0.16,1,0.3,1), opacity 0.35s ease;
+    }
+    #studentsPortalOverlay.open .portal-modal {
+      margin-top: 0;
+      opacity: 1;
+    }
 
-#businessLeadForm input:focus,
-#businessLeadForm select:focus{
-    outline:none;
-    border-color:var(--color-gold);
-}
+    .portal-close {
+      position: absolute; top: 1.25rem; right: 1.25rem;
+      width: 40px; height: 40px; border-radius: 50%;
+      border: 1px solid var(--color-border);
+      background: var(--color-surface-2);
+      display: grid; place-items: center;
+      font-size: 1.25rem; line-height: 1;
+      color: var(--color-text-muted);
+      cursor: pointer;
+      transition: background var(--transition), color var(--transition);
+      z-index: 10;
+    }
+    .portal-close:hover { background: var(--color-surface-offset); color: var(--color-text); }
 
-#businessLeadForm label{
-    display:block;
-    font-weight:600;
-    color:var(--color-text);
-}
+    .portal-header { text-align: center; margin-bottom: 2rem; }
+    .portal-header h2 {
+      font-family: var(--font-display); font-size: clamp(1.6rem, 4vw, 2.4rem);
+      letter-spacing: -0.04em; margin-top: 0.75rem;
+    }
+    .portal-header p { color: var(--color-text-muted); margin-top: 0.5rem; font-size: 0.95rem; }
 
-.radio-group{
-    display:grid;
-    grid-template-columns:repeat(2,1fr);
-    gap:1rem;
-    margin-top:.75rem;
-}
+    /* Course cards grid */
+    .courses-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 1.25rem;
+    }
 
-.radio-card{
-    display:flex !important;
-    align-items:center;
-    gap:.75rem;
-    padding:16px;
-    border:1px solid var(--color-border);
-    border-radius:14px;
-    background:var(--color-surface-2);
-    cursor:pointer;
-    transition:all .25s ease;
-}
+    .course-card {
+      border-radius: var(--radius-xl);
+      border: 1px solid var(--color-border);
+      background: linear-gradient(160deg, var(--color-surface-2), var(--color-surface));
+      padding: 1.5rem;
+      display: flex; flex-direction: column; gap: 0.75rem;
+      position: relative; overflow: hidden;
+      transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
+      z-index: 1;
+    }
+    .course-card::before {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(130deg, rgba(240,188,68,0.10), transparent 40%);
+      opacity: 0; transition: opacity var(--transition);
+      pointer-events: none;
+      z-index: 0;
+    }
+    .course-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-md); border-color: rgba(240,188,68,0.3); }
+    .course-card:hover::before { opacity: 1; }
 
-.radio-card{
-    position:relative;
-}
+    .course-badge {
+      display: inline-flex; align-items: center; gap: 0.35rem;
+      background: rgba(240,188,68,0.12); color: var(--color-gold);
+      border: 1px solid rgba(240,188,68,0.25);
+      border-radius: var(--radius-full);
+      font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em;
+      padding: 0.3rem 0.65rem;
+      width: fit-content;
+      position: relative;
+      z-index: 2;
+    }
 
-.radio-card input{
-    position:absolute;
-    opacity:0;
-}
+    .course-icon {
+      font-size: 2rem; line-height: 1;
+      position: relative;
+      z-index: 2;
+    }
 
-.radio-card:has(input:checked){
-    border-color:var(--color-gold);
-    background:rgba(240,188,68,0.12);
-    box-shadow:0 0 0 1px var(--color-gold);
-}
+    .course-card h3 {
+      font-family: var(--font-display); font-size: 1.05rem; font-weight: 700; line-height: 1.3;
+      color: var(--color-text);
+      position: relative;
+      z-index: 2;
+    }
 
-.radio-card:hover{
-    border-color:var(--color-gold);
-    transform:translateY(-2px);
-}
+    .course-card p {
+      font-size: 0.88rem; color: var(--color-text-muted); flex: 1;
+      position: relative;
+      z-index: 2;
+    }
 
-.radio-card input[type="radio"]{
-    accent-color:var(--color-gold);
-    transform:scale(1.2);
-}
+    .btn-know-more {
+      margin-top: 0.25rem;
+      width: 100%;
+      min-height: 42px;
+      background: linear-gradient(135deg, var(--color-gold), var(--color-gold-deep));
+      color: #111827;
+      border-radius: var(--radius-full);
+      font-weight: 700; font-size: 0.88rem;
+      border: none; cursor: pointer;
+      transition: transform var(--transition), box-shadow var(--transition);
+      display: flex; align-items: center; justify-content: center; gap: 0.4rem;
+      position: relative;
+      z-index: 5;
+      pointer-events: auto;
+    }
+    .btn-know-more:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(240,188,68,0.35); }
 
-.radio-card span{
-    font-weight:600;
-}
+    .btn-enq-submit {
+      margin-top: 0.25rem;
+      width: 100%;
+      min-height: 42px;
+      background: linear-gradient(135deg, var(--color-gold), var(--color-gold-deep));
+      color: #111827;
+      border-radius: var(--radius-full);
+      font-weight: 700; font-size: 0.88rem;
+      border: none; cursor: pointer;
+      transition: transform var(--transition), box-shadow var(--transition);
+      display: flex; align-items: center; justify-content: center; gap: 0.4rem;
+      position: relative;
+      z-index: 5;
+      pointer-events: auto;
+    }
+    .btn-enq-submit:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(240,188,68,0.35); }
 
-#lead-form,
-#lead-form *{
-    pointer-events:auto !important;
-}
+    /* ── Know More sub-modal ── */
+    #knowMoreOverlay {
+      position: fixed; inset: 0; z-index: 2000;
+      background: rgba(5, 12, 25, 0.88);
+      backdrop-filter: blur(8px);
+      display: flex; align-items: center; justify-content: center;
+      padding: 1rem;
+      opacity: 0; pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+    #knowMoreOverlay.open { opacity: 1; pointer-events: all; }
 
-#businessLeadForm input,
-#businessLeadForm select,
-#businessLeadForm button{
-    pointer-events:auto !important;
-    position:relative;
-    z-index:9999;
-}
+    .know-more-modal {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: 2rem;
+      box-shadow: var(--shadow-lg);
+      width: 100%;
+      max-width: 480px;
+      padding: 2rem;
+      position: relative;
+      margin-top: 40px;
+      opacity: 0;
+      transition: margin-top 0.35s cubic-bezier(0.16,1,0.3,1), opacity 0.35s ease;
+    }
+    #knowMoreOverlay.open .know-more-modal { margin-top: 0; opacity: 1; }
 
+    .know-more-modal .portal-close { top: 1rem; right: 1rem; }
 
+    .know-more-modal h3 {
+      font-family: var(--font-display); font-size: 1.5rem; letter-spacing: -0.03em;
+      margin-bottom: 0.35rem;
+    }
+    .know-more-modal .course-label {
+      display: inline-block; margin-bottom: 1.25rem;
+      padding: 0.3rem 0.8rem; border-radius: var(--radius-full);
+      background: rgba(240,188,68,0.14); color: var(--color-gold);
+      border: 1px solid rgba(240,188,68,0.25);
+      font-size: 0.82rem; font-weight: 700;
+    }
+
+    #courseEnquiryForm { display: grid; gap: 0.9rem; position: relative; z-index: 1; }
+    #courseEnquiryForm input {
+      width: 100%; padding: 13px 16px;
+      border-radius: 14px; border: 1px solid var(--color-border);
+      background: var(--color-surface-2);
+      color: var(--color-text); font-family: inherit; font-size: 15px;
+      position: relative; z-index: 1;
+    }
+    #courseEnquiryForm input:focus { outline: none; border-color: var(--color-gold); }
+    #courseEnquiryForm label { font-weight: 600; font-size: 0.9rem; position: relative; z-index: 1; }
+
+    /* ── Career Opportunities ── */
+    .career-section {
+      margin-top: 2.5rem;
+      border-top: 1px solid var(--color-divider);
+      padding-top: 2rem;
+    }
+    .career-section-head {
+      text-align: center;
+      margin-bottom: 1.75rem;
+    }
+    .career-section-head h3 {
+      font-family: var(--font-display);
+      font-size: clamp(1.3rem, 3vw, 1.9rem);
+      letter-spacing: -0.03em;
+      margin-top: 0.6rem;
+    }
+    .career-section-head p {
+      color: var(--color-text-muted);
+      margin-top: 0.5rem;
+      font-size: 0.93rem;
+      max-width: 62ch;
+      margin-inline: auto;
+    }
+    .career-cols {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.25rem;
+      margin-bottom: 1.25rem;
+    }
+    .career-col {
+      border-radius: var(--radius-xl);
+      border: 1px solid var(--color-border);
+      background: linear-gradient(160deg, var(--color-surface-2), var(--color-surface));
+      padding: 1.4rem;
+    }
+    .career-col h4 {
+      font-family: var(--font-display);
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--color-gold);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 1rem;
+      display: flex; align-items: center; gap: 0.5rem;
+    }
+    .career-list {
+      list-style: none;
+      display: grid;
+      gap: 0.5rem;
+    }
+    .career-list li {
+      display: flex; align-items: center; gap: 0.6rem;
+      font-size: 0.9rem; color: var(--color-text-muted);
+    }
+    .career-list li::before {
+      content: '';
+      width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0;
+      background: var(--color-gold);
+    }
+    .career-placement-band {
+      border-radius: var(--radius-xl);
+      background: linear-gradient(130deg, rgba(240,188,68,0.14), rgba(16,53,95,0.35));
+      border: 1px solid rgba(240,188,68,0.22);
+      padding: 1.4rem 1.6rem;
+      display: flex; align-items: center; gap: 1.2rem;
+      margin-top: 0;
+    }
+    .career-placement-icon {
+      font-size: 2.2rem; flex-shrink: 0;
+    }
+    .career-placement-band strong {
+      display: block;
+      font-family: var(--font-display);
+      font-size: 1.05rem;
+      color: var(--color-text);
+    }
+    .career-placement-band p {
+      font-size: 0.88rem;
+      color: var(--color-text-muted);
+      margin-top: 0.2rem;
+    }
+    @media (max-width: 640px) {
+      .portal-modal { padding: 1.5rem 1.25rem 2rem; border-radius: 1.5rem; }
+      .courses-grid { grid-template-columns: 1fr; }
+      .career-cols { grid-template-columns: 1fr; }
+      .know-more-modal { padding: 1.5rem 1.25rem; border-radius: 1.5rem; }
+    }
   </style>
 </head>
 <body>
@@ -404,6 +697,133 @@
       </div>
     </div>
   </header>
+
+  <!-- ═══════════════════════════════════════════════════
+       STUDENTS PORTAL MODAL
+  ═══════════════════════════════════════════════════ -->
+  <div id="studentsPortalOverlay" role="dialog" aria-modal="true" aria-label="Students Portal">
+    <div class="portal-modal">
+      <button class="portal-close" id="closePortalBtn" aria-label="Close Students Portal">✕</button>
+      <div class="portal-header">
+        <span class="eyebrow">MPR Associates</span>
+        <h2>UK & International Certified Courses</h2>
+        <p>Globally recognized qualifications to launch and advance your accounting career.</p>
+      </div>
+      <div class="courses-grid">
+
+        <div class="course-card">
+          <div class="course-icon">📊</div>
+          <div class="course-badge">✅ UK Certified</div>
+          <h3>Advanced Excel Accounting</h3>
+          <p>Master Excel for accounting — from advanced formulas and pivot tables to financial modelling and automation techniques used by professionals.</p>
+          <button class="btn-know-more" data-course="Advanced Excel Accounting">Know More →</button>
+        </div>
+
+        <div class="course-card">
+          <div class="course-icon">💼</div>
+          <div class="course-badge">✅ Certified</div>
+          <h3>TallyPrime</h3>
+          <p>Comprehensive training in TallyPrime for GST, invoicing, payroll, inventory management, and financial reporting used across businesses in India and the Gulf.</p>
+          <button class="btn-know-more" data-course="TallyPrime">Know More →</button>
+        </div>
+
+        <div class="course-card">
+          <div class="course-icon">🌍</div>
+          <div class="course-badge">✅ International</div>
+          <h3>ICFA — International Certified Financial Accounting</h3>
+          <p>A globally recognized financial accounting certification covering core accounting principles, financial statements, and international reporting standards.</p>
+          <button class="btn-know-more" data-course="ICFA – International Certified Financial Accounting">Know More →</button>
+        </div>
+
+        <div class="course-card">
+          <div class="course-icon">🏫</div>
+          <div class="course-badge">✅ Certified</div>
+          <h3>ATTC — Accounts Teachers Training Course</h3>
+          <p>Designed for aspiring and practicing accounts educators to build advanced subject knowledge and effective teaching methodologies for the classroom.</p>
+          <button class="btn-know-more" data-course="ATTC – Accounts Teachers Training Course">Know More →</button>
+        </div>
+
+        <div class="course-card">
+          <div class="course-icon">🎓</div>
+          <div class="course-badge">✅ Academic</div>
+          <h3>Degree &amp; PG Programmes</h3>
+          <p>Undergraduate and postgraduate academic programmes in Commerce and Accounting providing a strong foundation for a professional finance career.</p>
+          <button class="btn-know-more" data-course="Degree and PG Programmes">Know More →</button>
+        </div>
+
+      </div><!-- end courses-grid -->
+
+      <!-- Career Opportunities -->
+      <div class="career-section">
+        <div class="career-section-head">
+          <span class="eyebrow">After Your Course</span>
+          <h3>Career Opportunities</h3>
+          <p>Our Degree, PG, and International Certification programmes prepare students for a wide range of careers in Accounting, Finance, Taxation, and Business Management.</p>
+        </div>
+
+        <div class="career-cols">
+          <div class="career-col">
+            <h4>🧑‍💼 Career Roles</h4>
+            <ul class="career-list">
+              <li>Accountant</li>
+              <li>Accounts Executive</li>
+              <li>Senior Accountant</li>
+              <li>Finance Executive</li>
+              <li>Payroll Executive</li>
+              <li>Audit Assistant</li>
+              <li>Accounts Manager</li>
+              <li>Finance Manager</li>
+              <li>Banking &amp; Financial Services Professional</li>
+            </ul>
+          </div>
+          <div class="career-col">
+            <h4>🏢 Industries You Can Work In</h4>
+            <ul class="career-list">
+              <li>Corporate Companies</li>
+              <li>Accounting &amp; Audit Firms</li>
+              <li>Banks &amp; Financial Institutions</li>
+              <li>Trading &amp; Manufacturing Companies</li>
+              <li>Retail &amp; Service Organizations</li>
+              <li>Multinational Companies (MNCs)</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="career-placement-band">
+          <div class="career-placement-icon">💼</div>
+          <div>
+            <strong>Dedicated Job Placement Assistance</strong>
+            <p>We help students launch successful careers in the finance and accounting sector with active placement support and industry connections.</p>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- end portal-modal -->
+  </div><!-- end studentsPortalOverlay -->
+
+  <!-- ═══════════════════════════════════════════════════
+       KNOW MORE ENQUIRY MODAL
+  ═══════════════════════════════════════════════════ -->
+  <div id="knowMoreOverlay" role="dialog" aria-modal="true" aria-label="Course Enquiry">
+    <div class="know-more-modal">
+      <button class="portal-close" id="closeKnowMoreBtn" aria-label="Close">✕</button>
+      <h3>Enquire Now</h3>
+      <span class="course-label" id="knowMoreCourseLabel">Course Name</span>
+      <form id="courseEnquiryForm">
+        <div>
+          <label for="enq_name">Your Name</label>
+          <input type="text" id="enq_name" placeholder="Enter your full name" required />
+        </div>
+        <div>
+          <label for="enq_mobile">Mobile Number</label>
+          <input type="tel" id="enq_mobile" placeholder="+91 XXXXX XXXXX" required />
+        </div>
+        <button type="submit" class="btn-enq-submit" style="margin-top:0.25rem;">
+          📲 Send via WhatsApp
+        </button>
+      </form>
+    </div>
+  </div>
 
   <main id="main-content">
     <section class="hero" id="top">
@@ -455,7 +875,6 @@
           </div>
         </div>
       </div>
-      
       <div class="container trusted-strip reveal">
         <div class="trusted-item">Ideal for businesses that need professional accounting support without the overhead of a full-time, in-house accountant.</div>
         <div class="trusted-item">Complete management of end-to-end bookkeeping and accounting operations with structured workflows.</div>
@@ -546,6 +965,30 @@
       </div>
     </section>
 
+    <section class="section" id="students">
+      <div class="container">
+        <div class="portal-section-band reveal">
+          <div class="portal-band-copy">
+            <span class="eyebrow">Education Wing</span>
+            <h2>Launch Your Accounting Career with Certified Courses</h2>
+            <p>MPR Associates goes beyond business accounting — we invest in the next generation of finance professionals. Our UK and internationally certified programmes are designed for students and working professionals looking to build a strong, globally recognized qualification.</p>
+            <div class="portal-band-pills">
+              <span class="portal-band-pill">🎓 UK Certified</span>
+              <span class="portal-band-pill">🌍 Internationally Recognized</span>
+              <span class="portal-band-pill">💼 Job Placement Support</span>
+              <span class="portal-band-pill">📊 Practical Skills Training</span>
+              <span class="portal-band-pill">✅ TallyPrime · Excel · ICFA</span>
+            </div>
+          </div>
+          <div class="portal-band-cta">
+            <button class="btn btn-portal-section" id="studentsPortalBtn" type="button">
+              🎓 Students Portal
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section class="section">
       <div class="container">
         <div class="section-head reveal">
@@ -576,90 +1019,65 @@
     </section>
 
     <section class="section" id="lead-form">
-    <div class="container">
+      <div class="container">
         <div class="section-head reveal">
-            <div>
-                <span class="eyebrow">Free Consultation</span>
-                <h2>Tell us about your business.</h2>
-            </div>
-            <p>
-                Submit your details below to connect directly with MPR Associates via WhatsApp for a personalized consultation.
-            </p>
+          <div>
+            <span class="eyebrow">Free Consultation</span>
+            <h2>Tell us about your business.</h2>
+          </div>
+          <p>Submit your details below to connect directly with MPR Associates via WhatsApp for a personalized consultation.</p>
         </div>
-
         <div class="contact-card lead-form-card">
-            <form id="businessLeadForm">
-
-                <div>
-                    <label>Company Name</label>
-                    <input type="text" id="company_name" required>
-                </div>
-
-                <div>
-                    <label>Nature of the Firm</label>
-                    <select id="firm_nature" required>
-                        <option value="">Select Firm Type</option>
-                        <option>Trading</option>
-                        <option>Service</option>
-                        <option>Manufacturing</option>
-                        <option>Trading & Manufacturing</option>
-                        <option>Others</option>
-                    </select>
-                </div>
-
-                <div>
-                    <label>Mobile Number</label>
-                    <input type="tel" id="mobile_number" required>
-                </div>
-
-                <div>
-                    <label>Place</label>
-                    <input type="text" id="place" required>
-                </div>
-
-                <div>
-                    <label>Firm Status</label>
-
-                    <div class="radio-group">
-
-                      <label class="radio-card">
-                          <input
-                              type="radio"
-                              name="firm_status"
-                              value="Running Firm"
-                              required>
-                          <span>Running Firm</span>
-                      </label>
-
-                      <label class="radio-card">
-                          <input
-                              type="radio"
-                              name="firm_status"
-                              value="New Firm">
-                          <span>New Firm</span>
-                      </label>
-
-                  </div>
-                </div>
-
-                <button type="submit" class="btn btn-primary">
-                    Send via WhatsApp
-                </button>
-
-            </form>
+          <form id="businessLeadForm">
+            <div>
+              <label>Company Name</label>
+              <input type="text" id="company_name" required>
+            </div>
+            <div>
+              <label>Nature of the Firm</label>
+              <select id="firm_nature" required>
+                <option value="">Select Firm Type</option>
+                <option>Trading</option>
+                <option>Service</option>
+                <option>Manufacturing</option>
+                <option>Trading & Manufacturing</option>
+                <option>Others</option>
+              </select>
+            </div>
+            <div>
+              <label>Mobile Number</label>
+              <input type="tel" id="mobile_number" required>
+            </div>
+            <div>
+              <label>Place</label>
+              <input type="text" id="place" required>
+            </div>
+            <div>
+              <label>Firm Status</label>
+              <div class="radio-group">
+                <label class="radio-card">
+                  <input type="radio" name="firm_status" value="Running Firm" required>
+                  <span>Running Firm</span>
+                </label>
+                <label class="radio-card">
+                  <input type="radio" name="firm_status" value="New Firm">
+                  <span>New Firm</span>
+                </label>
+              </div>
+            </div>
+            <button type="submit" class="btn btn-primary">Send via WhatsApp</button>
+          </form>
         </div>
-    </div>
-</section>
+      </div>
+    </section>
 
     <section class="section" id="contact">
       <div class="container">
-      
-          <div>
-            <span class="eyebrow">Contact</span>
-            <h2>Connect with our team.</h2>
-          </div>
-          <p>Reach out today to discuss your accounting needs. We're ready to provide the professional support your business deserves.</p><br>
-        
+        <div>
+          <span class="eyebrow">Contact</span>
+          <h2>Connect with our team.</h2>
+        </div>
+        <p>Reach out today to discuss your accounting needs. We're ready to provide the professional support your business deserves.</p><br>
         <div class="grid contact-grid">
           <article class="contact-card reveal">
             <div class="card-icon">📞</div>
@@ -696,6 +1114,7 @@
 
   <script>
     (function(){
+      // ── Theme Toggle ──
       const root = document.documentElement;
       const toggle = document.querySelector('[data-theme-toggle]');
       let theme = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
@@ -706,13 +1125,19 @@
           : '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>';
       };
       renderIcon();
-      toggle.addEventListener('click', () => { theme = theme === 'dark' ? 'light' : 'dark'; root.setAttribute('data-theme', theme); renderIcon(); });
+      toggle.addEventListener('click', () => {
+        theme = theme === 'dark' ? 'light' : 'dark';
+        root.setAttribute('data-theme', theme);
+        renderIcon();
+      });
 
+      // ── Scroll Reveal ──
       const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
       }, { threshold: 0.18 });
       document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
+      // ── Mobile Menu ──
       const menuBtn = document.querySelector('[data-menu-toggle]');
       const nav = document.querySelector('.nav-links');
       menuBtn?.addEventListener('click', () => {
@@ -728,37 +1153,99 @@
         nav.style.borderRadius = '1rem';
         nav.style.boxShadow = getComputedStyle(document.documentElement).getPropertyValue('--shadow-md');
       });
-    })();
 
-    const businessLeadForm =
-document.getElementById("businessLeadForm");
+      // ── Students Portal Modal ──
+      const portalOverlay = document.getElementById('studentsPortalOverlay');
+      const openPortalBtn = document.getElementById('studentsPortalBtn');
+      const closePortalBtn = document.getElementById('closePortalBtn');
 
-if (businessLeadForm) {
+      function openPortal() {
+        portalOverlay.classList.add('open');
+        document.body.style.overflow = 'hidden';
+      }
+      function closePortal() {
+        portalOverlay.classList.remove('open');
+        document.body.style.overflow = '';
+        closeKnowMore();
+      }
 
-    businessLeadForm.addEventListener(
-        "submit",
-        function(e){
+      openPortalBtn.addEventListener('click', openPortal);
+      closePortalBtn.addEventListener('click', closePortal);
+      portalOverlay.addEventListener('click', (e) => {
+        if (e.target === portalOverlay) closePortal();
+      });
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') { closePortal(); closeKnowMore(); }
+      });
 
-            e.preventDefault();
+      // ── Know More Modal ──
+      const knowMoreOverlay = document.getElementById('knowMoreOverlay');
+      const knowMoreCourseLabel = document.getElementById('knowMoreCourseLabel');
+      const closeKnowMoreBtn = document.getElementById('closeKnowMoreBtn');
+      let activeCourse = '';
 
-            const companyName =
-                document.getElementById("company_name").value;
+      function openKnowMore(courseName) {
+        activeCourse = courseName;
+        knowMoreCourseLabel.textContent = courseName;
+        knowMoreOverlay.classList.add('open');
+      }
+      function closeKnowMore() {
+        knowMoreOverlay.classList.remove('open');
+        document.getElementById('courseEnquiryForm').reset();
+      }
 
-            const firmNature =
-                document.getElementById("firm_nature").value;
+      closeKnowMoreBtn.addEventListener('click', closeKnowMore);
+      knowMoreOverlay.addEventListener('click', (e) => {
+        if (e.target === knowMoreOverlay) closeKnowMore();
+      });
 
-            const mobileNumber =
-                document.getElementById("mobile_number").value;
+      // Attach Know More buttons
+      document.querySelectorAll('.btn-know-more').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          const course = btn.getAttribute('data-course');
+          openKnowMore(course);
+        });
+      });
 
-            const place =
-                document.getElementById("place").value;
+      // ── Course Enquiry Form → WhatsApp ──
+      const courseEnquiryForm = document.getElementById('courseEnquiryForm');
+      courseEnquiryForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        const name = document.getElementById('enq_name').value.trim();
+        const mobile = document.getElementById('enq_mobile').value.trim();
+        if (!name || !mobile) return;
 
-            const firmStatus =
-                document.querySelector(
-                    'input[name="firm_status"]:checked'
-                )?.value || "";
+        const message =
+`MPR ASSOCIATES - COURSE ENQUIRY
 
-            const message =
+*Course*: ${activeCourse}
+*Name*: ${name}
+*Mobile Number*: ${mobile}
+
+I am interested in learning more about this course. Kindly contact me.
+
+Thank you.`;
+
+        window.open(
+          `https://wa.me/917356020224?text=${encodeURIComponent(message)}`,
+          '_blank'
+        );
+        closeKnowMore();
+      });
+
+      // ── Business Lead Form → WhatsApp ──
+      const businessLeadForm = document.getElementById('businessLeadForm');
+      if (businessLeadForm) {
+        businessLeadForm.addEventListener('submit', function(e) {
+          e.preventDefault();
+          const companyName = document.getElementById('company_name').value;
+          const firmNature = document.getElementById('firm_nature').value;
+          const mobileNumber = document.getElementById('mobile_number').value;
+          const place = document.getElementById('place').value;
+          const firmStatus = document.querySelector('input[name="firm_status"]:checked')?.value || '';
+
+          const message =
 `MPR ASSOCIATES - WEBSITE ENQUIRY
 
 *Company Name*: ${companyName}
@@ -771,15 +1258,13 @@ Kindly contact me regarding your services.
 
 Thank you.`;
 
-            window.open(
-                `https://wa.me/917356020224?text=${encodeURIComponent(message)}`,
-                "_blank"
-            );
-
-        }
-    );
-
-}
+          window.open(
+            `https://wa.me/917356020224?text=${encodeURIComponent(message)}`,
+            '_blank'
+          );
+        });
+      }
+    })();
   </script>
 </body>
 </html>

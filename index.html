@@ -270,6 +270,75 @@
       *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
       .reveal { opacity: 1; transform: none; }
     }
+
+.lead-form-card{
+    max-width:850px;
+    margin:auto;
+}
+
+#businessLeadForm{
+    display:grid;
+    gap:1rem;
+}
+
+#businessLeadForm input[type="text"],
+#businessLeadForm input[type="tel"],
+#businessLeadForm select {
+    width: 100%;
+    padding: 14px 16px;
+    border-radius: 14px;
+    border: 1px solid var(--color-border);
+    background: var(--color-surface-2);
+    color: var(--color-text);
+    font-family: inherit;
+    font-size: 15px;
+}
+
+#businessLeadForm input[type="radio"]{
+    width:auto;
+    margin:0;
+    cursor:pointer;
+}
+
+#businessLeadForm input:focus,
+#businessLeadForm select:focus{
+    outline:none;
+    border-color:var(--color-gold);
+}
+
+#businessLeadForm label{
+    display:block;
+    font-weight:600;
+    color:var(--color-text);
+}
+
+.radio-group{
+    display:flex;
+    gap:1.5rem;
+    flex-wrap:wrap;
+    margin-top:.75rem;
+}
+
+.radio-group label{
+    display:flex;
+    align-items:center;
+    gap:.5rem;
+}
+
+#lead-form,
+#lead-form *{
+    pointer-events:auto !important;
+}
+
+#businessLeadForm input,
+#businessLeadForm select,
+#businessLeadForm button{
+    pointer-events:auto !important;
+    position:relative;
+    z-index:9999;
+}
+
+
   </style>
 </head>
 <body>
@@ -470,15 +539,87 @@
       </div>
     </section>
 
+    <section class="section" id="lead-form">
+    <div class="container">
+        <div class="section-head reveal">
+            <div>
+                <span class="eyebrow">Free Consultation</span>
+                <h2>Tell us about your business.</h2>
+            </div>
+            <p>
+                Submit your details and connect directly with MPR Associates through WhatsApp.
+            </p>
+        </div>
+
+        <div class="contact-card lead-form-card">
+            <form id="businessLeadForm">
+
+                <div>
+                    <label>Company Name</label>
+                    <input type="text" id="company_name" required>
+                </div>
+
+                <div>
+                    <label>Nature of the Firm</label>
+                    <select id="firm_nature" required>
+                        <option value="">Select Firm Type</option>
+                        <option>Trading</option>
+                        <option>Service</option>
+                        <option>Manufacturing</option>
+                        <option>Trading & Manufacturing</option>
+                        <option>Others</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label>Mobile Number</label>
+                    <input type="tel" id="mobile_number" required>
+                </div>
+
+                <div>
+                    <label>Place</label>
+                    <input type="text" id="place" required>
+                </div>
+
+                <div>
+                    <label>Firm Status</label>
+
+                    <div class="radio-group">
+                        <label>
+                            <input type="radio"
+                                   name="firm_status"
+                                   value="Running Firm"
+                                   required>
+                            Running Firm
+                        </label>
+
+                        <label>
+                            <input type="radio"
+                                   name="firm_status"
+                                   value="New Firm">
+                            New Firm
+                        </label>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-primary">
+                    Send via WhatsApp
+                </button>
+
+            </form>
+        </div>
+    </div>
+</section>
+
     <section class="section" id="contact">
       <div class="container">
-        <div class="section-head reveal">
+      
           <div>
             <span class="eyebrow">Contact</span>
             <h2>Designed to turn visitors into enquiries.</h2>
           </div>
           <p>The original poster highlights direct contact, location, and trust messaging, so the website finishes with a high-conversion contact section.</p>
-        </div>
+        
         <div class="grid contact-grid">
           <article class="contact-card reveal">
             <div class="card-icon">📞</div>
@@ -548,6 +689,57 @@
         nav.style.boxShadow = getComputedStyle(document.documentElement).getPropertyValue('--shadow-md');
       });
     })();
+
+    const businessLeadForm =
+document.getElementById("businessLeadForm");
+
+if (businessLeadForm) {
+
+    businessLeadForm.addEventListener(
+        "submit",
+        function(e){
+
+            e.preventDefault();
+
+            const companyName =
+                document.getElementById("company_name").value;
+
+            const firmNature =
+                document.getElementById("firm_nature").value;
+
+            const mobileNumber =
+                document.getElementById("mobile_number").value;
+
+            const place =
+                document.getElementById("place").value;
+
+            const firmStatus =
+                document.querySelector(
+                    'input[name="firm_status"]:checked'
+                )?.value || "";
+
+            const message =
+`MPR ASSOCIATES - WEBSITE ENQUIRY
+
+Company Name: ${companyName}
+Nature of Firm: ${firmNature}
+Mobile Number: ${mobileNumber}
+Place: ${place}
+Firm Status: ${firmStatus}
+
+Kindly contact me regarding your services.
+
+Thank you.`;
+
+            window.open(
+                `https://wa.me/917356020224?text=${encodeURIComponent(message)}`,
+                "_blank"
+            );
+
+        }
+    );
+
+}
   </script>
 </body>
 </html>

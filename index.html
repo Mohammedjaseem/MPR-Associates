@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MPR Associates — Accounting & Bookkeeping Solutions</title>
+  <meta name="description" content="MPR Associates provides affordable, reliable accounting and bookkeeping solutions including GST, VAT, payroll, reconciliation, and back-office support for growing businesses." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root, [data-theme="light"] {
+      --text-xs: clamp(0.75rem, 0.7rem + 0.25vw, 0.875rem);
+      --text-sm: clamp(0.875rem, 0.8rem + 0.35vw, 1rem);
+      --text-base: clamp(1rem, 0.95rem + 0.25vw, 1.125rem);
+      --text-lg: clamp(1.125rem, 1rem + 0.75vw, 1.5rem);
+      --text-xl: clamp(1.5rem, 1.2rem + 1.25vw, 2.25rem);
+      --text-2xl: clamp(2rem, 1.2rem + 2.5vw, 3.5rem);
+      --text-3xl: clamp(2.5rem, 1rem + 4vw, 5rem);
+      --space-1: 0.25rem; --space-2: 0.5rem; --space-3: 0.75rem; --space-4: 1rem; --space-5: 1.25rem; --space-6: 1.5rem; --space-8: 2rem; --space-10: 2.5rem; --space-12: 3rem; --space-16: 4rem; --space-20: 5rem;
+      --color-bg: #f7f6f2;
+      --color-surface: #ffffff;
+      --color-surface-2: #f6f4ef;
+      --color-surface-offset: #ede8df;
+      --color-border: rgba(18, 28, 45, 0.12);
+      --color-text: #0d1b2a;
+      --color-text-muted: #57606f;
+      --color-text-faint: #8d97a5;
+      --color-text-inverse: #ffffff;
+      --color-primary: #082850;
+      --color-primary-hover: #0d3b73;
+      --color-primary-highlight: #d7e2f1;
+      --color-gold: #e3ad2f;
+      --color-gold-deep: #c69116;
+      --color-success: #1d7a56;
+      --color-divider: rgba(18, 28, 45, 0.09);
+      --shadow-sm: 0 1px 2px rgba(15, 23, 42, 0.08);
+      --shadow-md: 0 10px 30px rgba(15, 23, 42, 0.10);
+      --shadow-lg: 0 24px 60px rgba(8, 40, 80, 0.18);
+      --radius-sm: 0.5rem; --radius-md: 0.875rem; --radius-lg: 1.25rem; --radius-xl: 1.75rem; --radius-full: 999px;
+      --content-default: 1120px;
+      --font-display: 'Outfit', 'Inter', sans-serif;
+      --font-body: 'Manrope', 'Inter', sans-serif;
+      --transition: 220ms cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    [data-theme="dark"] {
+      --color-bg: #071321;
+      --color-surface: #0b1b2f;
+      --color-surface-2: #10233c;
+      --color-surface-offset: #132946;
+      --color-border: rgba(255, 255, 255, 0.1);
+      --color-text: #f6f7fb;
+      --color-text-muted: #b5bfd0;
+      --color-text-faint: #7d8ca3;
+      --color-text-inverse: #06111d;
+      --color-primary: #10355f;
+      --color-primary-hover: #18487f;
+      --color-primary-highlight: rgba(227, 173, 47, 0.14);
+      --color-gold: #f0bc44;
+      --color-gold-deep: #db9b11;
+      --color-success: #4db98f;
+      --color-divider: rgba(255, 255, 255, 0.08);
+      --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.20);
+      --shadow-md: 0 12px 34px rgba(0, 0, 0, 0.26);
+      --shadow-lg: 0 32px 80px rgba(0, 0, 0, 0.38);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      min-height: 100vh;
+      background:
+        radial-gradient(circle at top right, rgba(227,173,47,0.16), transparent 28%),
+        radial-gradient(circle at left 20%, rgba(41,98,255,0.08), transparent 24%),
+        var(--color-bg);
+      color: var(--color-text);
+      font-family: var(--font-body);
+      font-size: var(--text-base);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+    img, svg { display: block; max-width: 100%; }
+    a { color: inherit; text-decoration: none; }
+    button { font: inherit; color: inherit; background: none; border: none; cursor: pointer; }
+    .skip-link {
+      position: absolute; left: -999px; top: var(--space-3);
+      background: var(--color-gold); color: #111; padding: var(--space-3) var(--space-4); border-radius: var(--radius-full); z-index: 100;
+    }
+    .skip-link:focus { left: var(--space-3); }
+    .container { width: min(calc(100% - 2rem), var(--content-default)); margin-inline: auto; }
+    .section { padding: clamp(var(--space-12), 8vw, 7rem) 0; }
+    .eyebrow {
+      display: inline-flex; align-items: center; gap: var(--space-2);
+      padding: 0.55rem 0.95rem; border-radius: var(--radius-full); background: var(--color-primary-highlight);
+      border: 1px solid var(--color-border); color: var(--color-gold); font-size: var(--text-xs); font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em;
+    }
+    .grid { display: grid; gap: var(--space-8); }
+    .site-header {
+      position: sticky; top: 0; z-index: 40; backdrop-filter: blur(18px);
+      background: color-mix(in srgb, var(--color-bg) 76%, transparent);
+      border-bottom: 1px solid var(--color-divider);
+    }
+    .nav { display: flex; align-items: center; justify-content: space-between; min-height: 76px; gap: var(--space-4); }
+    .brand { display: flex; align-items: center; gap: var(--space-3); font-weight: 800; letter-spacing: -0.03em; }
+    .brand-mark {
+      width: 52px; height: 52px; border-radius: 50%; position: relative; display: grid; place-items: center;
+      background: linear-gradient(145deg, rgba(255,255,255,0.06), rgba(255,255,255,0.01));
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,0.08), var(--shadow-md);
+      overflow: hidden;
+    }
+    .brand-mark::before {
+      content: ''; position: absolute; inset: 2px; border-radius: 50%;
+      border: 4px solid transparent; border-top-color: var(--color-gold); border-left-color: var(--color-gold); transform: rotate(-35deg);
+    }
+    .brand-mark::after {
+      content: ''; position: absolute; inset: 8px; border-radius: 50%; border: 2px solid rgba(255,255,255,0.72);
+    }
+    .brand-mark span { position: relative; z-index: 1; font-family: var(--font-display); font-size: 1.2rem; color: var(--color-text); }
+    .brand-text strong { display: block; font-family: var(--font-display); font-size: 1rem; }
+    .brand-text small { color: var(--color-text-muted); font-size: 0.8rem; }
+    .nav-links { display: flex; align-items: center; gap: var(--space-5); color: var(--color-text-muted); }
+    .nav-links a:hover { color: var(--color-text); }
+    .header-actions { display: flex; align-items: center; gap: var(--space-3); }
+    .theme-toggle, .menu-btn {
+      width: 46px; height: 46px; border-radius: 50%; border: 1px solid var(--color-border); display: grid; place-items: center;
+      background: var(--color-surface);
+      box-shadow: var(--shadow-sm);
+    }
+    .menu-btn { display: none; }
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: var(--space-2);
+      min-height: 48px; padding: 0 1.15rem; border-radius: var(--radius-full); border: 1px solid transparent;
+      font-size: var(--text-sm); font-weight: 700; transition: transform var(--transition), background var(--transition), border-color var(--transition), color var(--transition);
+    }
+    .btn:hover { transform: translateY(-2px); }
+    .btn-primary { background: linear-gradient(135deg, var(--color-gold), var(--color-gold-deep)); color: #111827; box-shadow: var(--shadow-md); }
+    .btn-secondary { background: var(--color-surface); border-color: var(--color-border); }
+    .hero {
+      position: relative; padding: clamp(5rem, 10vw, 8rem) 0 clamp(4rem, 7vw, 6rem);
+    }
+    .hero-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: clamp(2rem, 4vw, 4rem); align-items: center; }
+    .hero-copy h1 {
+      font-family: var(--font-display); font-size: clamp(2.8rem, 6vw, 5.8rem); line-height: 0.97; letter-spacing: -0.05em; max-width: 10ch;
+    }
+    .hero-copy h1 .accent { color: var(--color-gold); display: inline-block; }
+    .hero-copy p { margin-top: var(--space-6); max-width: 58ch; color: var(--color-text-muted); }
+    .hero-actions, .hero-points { display: flex; flex-wrap: wrap; gap: var(--space-3); margin-top: var(--space-6); }
+    .hero-points span {
+      padding: 0.8rem 1rem; border-radius: var(--radius-full); background: rgba(255,255,255,0.05); border: 1px solid var(--color-border); color: var(--color-text);
+    }
+    .hero-visual {
+      position: relative; min-height: 560px; border-radius: 2rem; overflow: hidden; background:
+      linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.01)),
+      linear-gradient(145deg, #0f2744, #091626 70%);
+      border: 1px solid rgba(255,255,255,0.08); box-shadow: var(--shadow-lg);
+      isolation: isolate;
+    }
+    .hero-visual::before {
+      content: ''; position: absolute; width: 260px; height: 260px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(240,188,68,0.28), transparent 68%); top: -60px; right: -60px;
+      animation: float 8s ease-in-out infinite;
+    }
+    .hero-visual::after {
+      content: ''; position: absolute; inset: auto auto -60px -60px; width: 280px; height: 280px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(46,118,255,0.18), transparent 72%);
+      animation: float 10s ease-in-out infinite reverse;
+    }
+    .dashboard-card {
+      position: absolute; border-radius: var(--radius-xl); border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(11,27,47,0.78); backdrop-filter: blur(16px); box-shadow: var(--shadow-md);
+    }
+    .stats-card { top: 1.5rem; left: 1.5rem; right: 7rem; padding: 1.35rem; }
+    .stats-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-3); margin-top: var(--space-4); }
+    .metric { padding: 1rem; border-radius: 1rem; background: rgba(255,255,255,0.04); }
+    .metric strong { display: block; font-size: 1.35rem; color: var(--color-gold); }
+    .metric span { color: var(--color-text-muted); font-size: 0.86rem; }
+    .laptop-card { right: 1.5rem; left: 4.5rem; bottom: 1.5rem; padding: 1rem; }
+    .screen {
+      aspect-ratio: 16/10; border-radius: 1.25rem; padding: 1rem; background: linear-gradient(180deg, #f8fbff, #e8edf5); color: #0f172a;
+      position: relative; overflow: hidden;
+    }
+    .bars { display: flex; align-items: end; gap: 0.5rem; height: 150px; margin-top: 1.25rem; }
+    .bar { width: 100%; border-radius: 0.6rem 0.6rem 0 0; background: linear-gradient(180deg, #7aa6ff, #1b4cd8); animation: rise 1.4s ease forwards; transform-origin: bottom; }
+    .pie {
+      position: absolute; right: 1rem; top: 1rem; width: 88px; height: 88px; border-radius: 50%;
+      background: conic-gradient(var(--color-gold) 0 30%, #173e76 30% 68%, #6aa6ff 68% 100%);
+      border: 6px solid rgba(255,255,255,0.85);
+    }
+    .screen-footer { display: flex; justify-content: space-between; align-items: center; margin-top: 1rem; color: #475569; font-size: 0.88rem; }
+    .trusted-strip {
+      margin-top: var(--space-8); display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--space-4);
+    }
+    .trusted-item {
+      padding: 1rem 1.1rem; border-radius: var(--radius-lg); background: rgba(255,255,255,0.04); border: 1px solid var(--color-border);
+      color: var(--color-text-muted);
+    }
+    .section-head { display: flex; align-items: end; justify-content: space-between; gap: var(--space-6); margin-bottom: var(--space-8); }
+    .section-head h2 { font-family: var(--font-display); font-size: var(--text-2xl); letter-spacing: -0.04em; max-width: 14ch; }
+    .section-head p { color: var(--color-text-muted); max-width: 56ch; }
+    .services-grid { grid-template-columns: repeat(4, 1fr); }
+    .service-card, .feature-card, .contact-card, .process-step, .testimonial-card {
+      position: relative; padding: 1.4rem; border-radius: var(--radius-xl); background: linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.025));
+      border: 1px solid var(--color-border); box-shadow: var(--shadow-sm); overflow: hidden;
+    }
+    .service-card::before, .feature-card::before, .contact-card::before, .testimonial-card::before {
+      content: ''; position: absolute; inset: 0; background: linear-gradient(130deg, rgba(240,188,68,0.10), transparent 35%);
+      opacity: 0; transition: opacity var(--transition);
+    }
+    .service-card:hover::before, .feature-card:hover::before, .contact-card:hover::before, .testimonial-card:hover::before { opacity: 1; }
+    .service-card:hover, .feature-card:hover, .contact-card:hover, .testimonial-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-md); }
+    .card-icon {
+      width: 3rem; height: 3rem; border-radius: 1rem; display: grid; place-items: center; margin-bottom: var(--space-4);
+      background: rgba(240,188,68,0.12); color: var(--color-gold);
+    }
+    .service-card h3, .feature-card h3, .contact-card h3, .process-step h3, .testimonial-card h3 {
+      font-size: 1.1rem; margin-bottom: 0.55rem; font-family: var(--font-display);
+    }
+    .service-card p, .feature-card p, .contact-card p, .process-step p, .testimonial-card p { color: var(--color-text-muted); font-size: 0.96rem; }
+    .why-grid { grid-template-columns: 1.05fr 0.95fr; align-items: start; }
+    .feature-list { display: grid; gap: var(--space-4); }
+    .feature-card { display: grid; grid-template-columns: auto 1fr; gap: var(--space-4); align-items: start; }
+    .feature-card .card-icon { margin-bottom: 0; }
+    .spotlight {
+      padding: clamp(1.5rem, 3vw, 2rem); border-radius: 2rem; background: linear-gradient(160deg, rgba(240,188,68,0.14), rgba(16,53,95,0.28));
+      border: 1px solid rgba(240,188,68,0.18); box-shadow: var(--shadow-lg);
+    }
+    .spotlight-panel { padding: 1.3rem; background: rgba(9,22,38,0.56); border: 1px solid rgba(255,255,255,0.08); border-radius: 1.4rem; margin-top: var(--space-5); }
+    .process { grid-template-columns: repeat(3, 1fr); }
+    .process-step { background: var(--color-surface); }
+    .step-no {
+      display: inline-flex; width: 2.4rem; height: 2.4rem; border-radius: 50%; align-items: center; justify-content: center;
+      background: var(--color-gold); color: #111; font-weight: 800; margin-bottom: var(--space-4);
+    }
+    .testimonial-wrap { grid-template-columns: 1fr 1fr; }
+    .cta-band {
+      padding: clamp(1.8rem, 4vw, 2.6rem); border-radius: 2rem; background: linear-gradient(120deg, rgba(240,188,68,0.18), rgba(16,53,95,0.55));
+      border: 1px solid rgba(240,188,68,0.2); display: flex; justify-content: space-between; align-items: center; gap: var(--space-6);
+    }
+    .contact-grid { grid-template-columns: 1.2fr 0.8fr 0.8fr; }
+    .contact-card strong { display: block; font-size: 1.5rem; margin-top: 0.35rem; color: var(--color-gold); }
+    .footer {
+      padding: var(--space-8) 0 var(--space-10); border-top: 1px solid var(--color-divider); color: var(--color-text-muted);
+    }
+    .footer-row { display: flex; justify-content: space-between; align-items: center; gap: var(--space-4); flex-wrap: wrap; }
+    .reveal { opacity: 0; transform: translateY(26px); transition: opacity 0.8s ease, transform 0.8s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    @keyframes float { 50% { transform: translateY(18px); } }
+    @keyframes rise { from { transform: scaleY(0.2); opacity: 0.5; } to { transform: scaleY(1); opacity: 1; } }
+    @media (max-width: 1080px) {
+      .hero-grid, .why-grid, .contact-grid, .testimonial-wrap, .services-grid, .process { grid-template-columns: 1fr 1fr; }
+      .trusted-strip { grid-template-columns: 1fr 1fr; }
+      .hero-visual { min-height: 500px; }
+      .stats-card { right: 2rem; }
+      .laptop-card { left: 2rem; }
+    }
+    @media (max-width: 760px) {
+      .nav-links, .header-actions .btn { display: none; }
+      .menu-btn { display: grid; }
+      .hero-grid, .services-grid, .why-grid, .process, .testimonial-wrap, .contact-grid, .trusted-strip { grid-template-columns: 1fr; }
+      .section-head { align-items: start; flex-direction: column; }
+      .hero-copy h1 { max-width: 11ch; }
+      .hero-visual { min-height: 440px; }
+      .stats-card { left: 1rem; right: 1rem; top: 1rem; }
+      .stats-row { grid-template-columns: 1fr; }
+      .laptop-card { left: 1rem; right: 1rem; bottom: 1rem; }
+      .cta-band, .footer-row { flex-direction: column; align-items: flex-start; }
+      .feature-card { grid-template-columns: 1fr; }
+      .service-card, .feature-card, .contact-card, .process-step, .testimonial-card { padding: 1.2rem; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+      .reveal { opacity: 1; transform: none; }
+    }
+  </style>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to content</a>
+  <header class="site-header">
+    <div class="container nav">
+      <a href="#top" class="brand" aria-label="MPR Associates home">
+        <div class="brand-mark" aria-hidden="true"><span>MPR</span></div>
+        <div class="brand-text">
+          <strong>MPR Associates</strong>
+          <small>Accounting &amp; Bookkeeping Solutions</small>
+        </div>
+      </a>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="#services">Services</a>
+        <a href="#why-us">Why Us</a>
+        <a href="#process">Process</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <div class="header-actions">
+        <button class="theme-toggle" type="button" data-theme-toggle aria-label="Switch theme">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+        <a class="btn btn-primary" href="#contact">Get a consultation</a>
+        <button class="menu-btn" type="button" data-menu-toggle aria-label="Open menu">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <section class="hero" id="top">
+      <div class="container hero-grid">
+        <div class="hero-copy reveal">
+          <span class="eyebrow">Reliable · Accurate · Affordable</span>
+          <h1>Don’t worry. <span class="accent">We are here to help</span> your business grow.</h1>
+          <p>MPR Associates supports small businesses and growing enterprises with bookkeeping, accounting, payroll, GST and VAT data entry, bank reconciliation, and back-office finance support.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#contact">Talk to MPR</a>
+            <a class="btn btn-secondary" href="#services">Explore services</a>
+          </div>
+          <div class="hero-points" aria-label="Key strengths">
+            <span>Accounts data entry</span>
+            <span>GST &amp; VAT support</span>
+            <span>Gulf country accounting</span>
+            <span>Confidential data handling</span>
+          </div>
+        </div>
+        <div class="hero-visual reveal" aria-hidden="true">
+          <div class="dashboard-card stats-card">
+            <span class="eyebrow" style="background: rgba(255,255,255,0.04); border-color: rgba(255,255,255,0.08);">Business finance snapshot</span>
+            <div class="stats-row">
+              <div class="metric"><strong>100%</strong><span>On-time accuracy</span></div>
+              <div class="metric"><strong>24/7</strong><span>Responsive support</span></div>
+              <div class="metric"><strong>Flexible</strong><span>Service packages</span></div>
+            </div>
+          </div>
+          <div class="dashboard-card laptop-card">
+            <div class="screen">
+              <div style="display:flex; justify-content:space-between; align-items:center; gap:1rem;">
+                <div>
+                  <div style="font-weight:800; font-size:1rem;">Performance dashboard</div>
+                  <div style="font-size:0.82rem; color:#64748b;">Accounts overview</div>
+                </div>
+                <div style="padding:0.35rem 0.7rem; border-radius:999px; background:#eef4ff; color:#1d4ed8; font-size:0.76rem; font-weight:700;">Live reports</div>
+              </div>
+              <div class="pie"></div>
+              <div class="bars">
+                <div class="bar" style="height:44%"></div>
+                <div class="bar" style="height:68%"></div>
+                <div class="bar" style="height:55%"></div>
+                <div class="bar" style="height:80%"></div>
+                <div class="bar" style="height:72%"></div>
+                <div class="bar" style="height:92%"></div>
+              </div>
+              <div class="screen-footer"><span>Bookkeeping</span><span>Reconciliation</span><span>Compliance</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="container trusted-strip reveal">
+        <div class="trusted-item">Support for businesses that cannot afford full-time accountant salaries.</div>
+        <div class="trusted-item">End-to-end bookkeeping and accounting operations managed professionally.</div>
+        <div class="trusted-item">Specialized GST, VAT, payroll, and reporting assistance.</div>
+        <div class="trusted-item">Trusted accounting partner for small businesses and growing enterprises.</div>
+      </div>
+    </section>
+
+    <section class="section" id="services">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <span class="eyebrow">Our services</span>
+            <h2>Modern accounting support built around daily business operations.</h2>
+          </div>
+          <p>From transaction entries to financial reporting, MPR Associates helps streamline finance workflows so business owners can focus on sales, operations, and growth.</p>
+        </div>
+        <div class="grid services-grid">
+          <article class="service-card reveal"><div class="card-icon">📊</div><h3>Accounts Data Entry</h3><p>Structured and accurate entry of day-to-day accounts information for better visibility and reporting.</p></article>
+          <article class="service-card reveal"><div class="card-icon">📘</div><h3>Bookkeeping &amp; Accounting</h3><p>Reliable support for maintaining records, managing books, and organizing finance operations.</p></article>
+          <article class="service-card reveal"><div class="card-icon">🏦</div><h3>Bank Reconciliation</h3><p>Match books with bank statements to reduce errors and keep your accounts updated.</p></article>
+          <article class="service-card reveal"><div class="card-icon">🛒</div><h3>Sales &amp; Purchase Entry</h3><p>Track invoices, purchases, and transaction records with clean, systematic entry support.</p></article>
+          <article class="service-card reveal"><div class="card-icon">💳</div><h3>Payables &amp; Receivables</h3><p>Monitor dues, receivables, and payment schedules to improve business cash flow control.</p></article>
+          <article class="service-card reveal"><div class="card-icon">🧾</div><h3>Payroll Processing</h3><p>Consistent payroll handling with attention to timing, records, and business confidentiality.</p></article>
+          <article class="service-card reveal"><div class="card-icon">🌍</div><h3>GST &amp; VAT Data Entry</h3><p>Support for GST, VAT, and Gulf country accounting requirements through organized documentation.</p></article>
+          <article class="service-card reveal"><div class="card-icon">📈</div><h3>Financial Reports</h3><p>Prepare useful financial summaries and reports that support better decision-making.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="why-us">
+      <div class="container grid why-grid">
+        <div>
+          <div class="section-head reveal" style="margin-bottom:1.25rem;">
+            <div>
+              <span class="eyebrow">Why MPR Associates</span>
+              <h2>A professional finance partner for fast-moving businesses.</h2>
+            </div>
+          </div>
+          <div class="feature-list">
+            <article class="feature-card reveal">
+              <div class="card-icon">✓</div>
+              <div><h3>Cost-effective services</h3><p>Designed for business owners who need solid accounting support without the cost of a full-time accounting team.</p></div>
+            </article>
+            <article class="feature-card reveal">
+              <div class="card-icon">⏱</div>
+              <div><h3>Timely and accurate work</h3><p>Focused on dependable delivery, organized execution, and high attention to detail across every finance task.</p></div>
+            </article>
+            <article class="feature-card reveal">
+              <div class="card-icon">🔒</div>
+              <div><h3>Confidential data handling</h3><p>Business records and financial information are handled with care, structure, and professionalism.</p></div>
+            </article>
+            <article class="feature-card reveal">
+              <div class="card-icon">🌐</div>
+              <div><h3>Support for Gulf countries</h3><p>Experience with Gulf country accounting needs adds value for businesses operating across regions.</p></div>
+            </article>
+          </div>
+        </div>
+        <aside class="spotlight reveal">
+          <span class="eyebrow">Built for trust</span>
+          <h3 style="font-family:var(--font-display); font-size:clamp(1.6rem,3vw,2.4rem); margin-top:1rem; letter-spacing:-0.04em;">When accounts are pending, the business slows down. MPR helps keep finance moving.</h3>
+          <p style="margin-top:1rem; color:var(--color-text-muted);">This website concept turns the original poster into a premium digital brand presence with a strong hero section, trust-building service blocks, clear business benefits, and conversion-focused contact areas.</p>
+          <div class="spotlight-panel">
+            <div style="display:grid; gap:1rem;">
+              <div style="display:flex; justify-content:space-between; gap:1rem;"><span>Experienced professionals</span><strong style="color:var(--color-gold);">Yes</strong></div>
+              <div style="display:flex; justify-content:space-between; gap:1rem;"><span>Back-office accounting support</span><strong style="color:var(--color-gold);">Included</strong></div>
+              <div style="display:flex; justify-content:space-between; gap:1rem;"><span>Flexible service packages</span><strong style="color:var(--color-gold);">Available</strong></div>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section" id="process">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <span class="eyebrow">How it works</span>
+            <h2>Simple engagement process with a polished business experience.</h2>
+          </div>
+          <p>The site includes a process section because modern service brands convert better when visitors quickly understand what happens after they contact the business.</p>
+        </div>
+        <div class="grid process">
+          <article class="process-step reveal"><span class="step-no">1</span><h3>Share your business needs</h3><p>Tell MPR about pending accounts, bookkeeping gaps, payroll work, or tax-related data entry requirements.</p></article>
+          <article class="process-step reveal"><span class="step-no">2</span><h3>Choose the right service package</h3><p>Select support based on workload, reporting needs, compliance tasks, and the level of ongoing assistance required.</p></article>
+          <article class="process-step reveal"><span class="step-no">3</span><h3>Receive consistent finance support</h3><p>Get organized, timely accounting assistance that helps your business stay accurate and ready to grow.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <span class="eyebrow">Client fit</span>
+            <h2>Ideal for small businesses, startups, traders, and growing enterprises.</h2>
+          </div>
+          <p>This structure makes the website more complete and professional by clarifying who the brand serves and where the services are most useful.</p>
+        </div>
+        <div class="grid testimonial-wrap">
+          <article class="testimonial-card reveal">
+            <h3>For businesses without an in-house accountant</h3>
+            <p>Perfect for owners who need accounting stability without immediately hiring a full-time accountant.</p>
+          </article>
+          <article class="testimonial-card reveal">
+            <h3>For companies needing back-office support</h3>
+            <p>Useful when transaction entry, reconciliation, payroll, and reporting tasks need steady external support.</p>
+          </article>
+        </div>
+        <div class="cta-band reveal" style="margin-top:2rem;">
+          <div>
+            <span class="eyebrow">Ready to start</span>
+            <h3 style="font-family:var(--font-display); font-size:clamp(1.7rem,3.5vw,2.7rem); letter-spacing:-0.04em; margin-top:0.8rem;">A modern website can make MPR Associates look more premium, trustworthy, and conversion-ready.</h3>
+          </div>
+          <a class="btn btn-primary" href="#contact">Contact section</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="contact">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <span class="eyebrow">Contact</span>
+            <h2>Designed to turn visitors into enquiries.</h2>
+          </div>
+          <p>The original poster highlights direct contact, location, and trust messaging, so the website finishes with a high-conversion contact section.</p>
+        </div>
+        <div class="grid contact-grid">
+          <article class="contact-card reveal">
+            <div class="card-icon">📞</div>
+            <h3>Call MPR Associates</h3>
+            <strong>7356 02 02 24</strong>
+            <p>Fast direct contact for service enquiries and consultation requests.</p>
+          </article>
+          <article class="contact-card reveal">
+            <div class="card-icon">📍</div>
+            <h3>Location</h3>
+            <strong style="font-size:1.2rem;">Changaramkulam, Kerala</strong>
+            <p>Local presence with support for broader business accounting needs.</p>
+          </article>
+          <article class="contact-card reveal">
+            <div class="card-icon">🤝</div>
+            <h3>Business promise</h3>
+            <strong style="font-size:1.2rem;">Trusted accounting partner</strong>
+            <p>Professional support for small businesses and growing enterprises.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-row">
+      <div>
+        <strong style="font-family:var(--font-display); color:var(--color-text);">MPR Associates</strong><br>
+        <span>Accounting &amp; Bookkeeping Solutions</span>
+      </div>
+      <div>Crafted as a modern, animated single-page business website concept.</div>
+    </div>
+  </footer>
+
+  <script>
+    (function(){
+      const root = document.documentElement;
+      const toggle = document.querySelector('[data-theme-toggle]');
+      let theme = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      root.setAttribute('data-theme', theme);
+      const renderIcon = () => {
+        toggle.innerHTML = theme === 'dark'
+          ? '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="5"></circle><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"></path></svg>'
+          : '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>';
+      };
+      renderIcon();
+      toggle.addEventListener('click', () => { theme = theme === 'dark' ? 'light' : 'dark'; root.setAttribute('data-theme', theme); renderIcon(); });
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+      }, { threshold: 0.18 });
+      document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+      const menuBtn = document.querySelector('[data-menu-toggle]');
+      const nav = document.querySelector('.nav-links');
+      menuBtn?.addEventListener('click', () => {
+        const open = nav.style.display === 'grid';
+        nav.style.display = open ? 'none' : 'grid';
+        nav.style.position = 'absolute';
+        nav.style.top = '76px';
+        nav.style.left = '1rem';
+        nav.style.right = '1rem';
+        nav.style.padding = '1rem';
+        nav.style.background = getComputedStyle(document.documentElement).getPropertyValue('--color-surface');
+        nav.style.border = '1px solid ' + getComputedStyle(document.documentElement).getPropertyValue('--color-border');
+        nav.style.borderRadius = '1rem';
+        nav.style.boxShadow = getComputedStyle(document.documentElement).getPropertyValue('--shadow-md');
+      });
+    })();
+  </script>
+</body>
+</html>

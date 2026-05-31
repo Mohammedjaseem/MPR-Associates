@@ -313,16 +313,51 @@
 }
 
 .radio-group{
-    display:flex;
-    gap:1.5rem;
-    flex-wrap:wrap;
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:1rem;
     margin-top:.75rem;
 }
 
-.radio-group label{
-    display:flex;
+.radio-card{
+    display:flex !important;
     align-items:center;
-    gap:.5rem;
+    gap:.75rem;
+    padding:16px;
+    border:1px solid var(--color-border);
+    border-radius:14px;
+    background:var(--color-surface-2);
+    cursor:pointer;
+    transition:all .25s ease;
+}
+
+.radio-card{
+    position:relative;
+}
+
+.radio-card input{
+    position:absolute;
+    opacity:0;
+}
+
+.radio-card:has(input:checked){
+    border-color:var(--color-gold);
+    background:rgba(240,188,68,0.12);
+    box-shadow:0 0 0 1px var(--color-gold);
+}
+
+.radio-card:hover{
+    border-color:var(--color-gold);
+    transform:translateY(-2px);
+}
+
+.radio-card input[type="radio"]{
+    accent-color:var(--color-gold);
+    transform:scale(1.2);
+}
+
+.radio-card span{
+    font-weight:600;
 }
 
 #lead-form,
@@ -585,21 +620,25 @@
                     <label>Firm Status</label>
 
                     <div class="radio-group">
-                        <label>
-                            <input type="radio"
-                                   name="firm_status"
-                                   value="Running Firm"
-                                   required>
-                            Running Firm
-                        </label>
 
-                        <label>
-                            <input type="radio"
-                                   name="firm_status"
-                                   value="New Firm">
-                            New Firm
-                        </label>
-                    </div>
+                      <label class="radio-card">
+                          <input
+                              type="radio"
+                              name="firm_status"
+                              value="Running Firm"
+                              required>
+                          <span>Running Firm</span>
+                      </label>
+
+                      <label class="radio-card">
+                          <input
+                              type="radio"
+                              name="firm_status"
+                              value="New Firm">
+                          <span>New Firm</span>
+                      </label>
+
+                  </div>
                 </div>
 
                 <button type="submit" class="btn btn-primary">
